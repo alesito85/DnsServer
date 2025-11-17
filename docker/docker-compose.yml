@@ -1,0 +1,25 @@
+services:
+  dns-server:
+    container_name: technitium-dns-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: technitium/dns-server-custom:latest
+    network_mode: "host"
+    restart: unless-stopped
+    environment:
+      DNS_SERVER_DOMAIN: dns-server
+      DNS_SERVER_ADMIN_PASSWORD: ${DNS_SERVER_ADMIN_PASSWORD}
+      DNS_SERVER_PREFER_IPV6: "false"
+      DNS_SERVER_WEB_SERVICE_LOCAL_ADDRESSES: 127.0.0.1
+      DNS_SERVER_WEB_SERVICE_HTTP_PORT: "5380"
+      DNS_SERVER_WEB_SERVICE_HTTPS_PORT: "53443"
+      DNS_SERVER_WEB_SERVICE_ENABLE_HTTPS: "true"
+      DNS_SERVER_WEB_SERVICE_USE_SELF_SIGNED_CERT: "true"
+      DNS_SERVER_ENABLE_BLOCKING: "true"
+      DNS_SERVER_FORWARDERS: 1.1.1.1,8.8.8.8
+    volumes:
+      - dns-config:/etc/dns
+
+volumes:
+  dns-config:

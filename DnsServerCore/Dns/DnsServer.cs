@@ -186,9 +186,9 @@ namespace DnsServerCore.Dns
         IReadOnlyCollection<NetworkAccessControl> _reverseProxyNetworkACL;
         int _dnsOverUdpProxyPort = 538;
         int _dnsOverTcpProxyPort = 538;
-        int _dnsOverHttpPort = 80;
+        int _dnsOverHttpPort = 880;
         int _dnsOverTlsPort = 853;
-        int _dnsOverHttpsPort = 443;
+        int _dnsOverHttpsPort = 8443;
         int _dnsOverQuicPort = 853;
         string _dnsTlsCertificatePath;
         string _dnsTlsCertificatePassword;

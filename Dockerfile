@@ -33,9 +33,9 @@ EXPOSE \
   # DNS-over-QUIC (UDP) + DNS-over-TLS (TCP)
   853/udp 853/tcp    \
   # DNS-over-HTTPS (UDP => HTTP/3) (TCP => HTTP/1.1 + HTTP/2)
-  443/udp 443/tcp    \
+  8443/udp 8443/tcp    \
   # DNS-over-HTTP (for when running behind a reverse-proxy that terminates TLS)
-  80/tcp 8053/tcp    \
+  880/tcp 8053/tcp    \
   # Technitium web console + API (HTTP / HTTPS)
   5380/tcp 53443/tcp \
   # DHCP

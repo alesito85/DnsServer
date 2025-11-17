@@ -213,7 +213,7 @@ namespace Failover
             _interval = jsonHealthCheck.GetPropertyValue("interval", 60) * 1000;
             _retries = jsonHealthCheck.GetPropertyValue("retries", 3);
             _timeout = jsonHealthCheck.GetPropertyValue("timeout", 10) * 1000;
-            _port = jsonHealthCheck.GetPropertyValue("port", 80);
+            _port = jsonHealthCheck.GetPropertyValue("port", 880);
 
             if (jsonHealthCheck.TryGetProperty("url", out JsonElement jsonUrl) && (jsonUrl.ValueKind != JsonValueKind.Null))
                 _url = new Uri(jsonUrl.GetString());

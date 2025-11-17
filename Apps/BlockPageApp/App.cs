@@ -222,14 +222,14 @@ namespace BlockPage
                 {
                     //http
                     foreach (IPAddress webServiceLocalAddress in _webServerLocalAddresses)
-                        serverOptions.Listen(webServiceLocalAddress, 80);
+                        serverOptions.Listen(webServiceLocalAddress, 880);
 
                     //https
                     if (_sslServerAuthenticationOptions is not null)
                     {
                         foreach (IPAddress webServiceLocalAddress in _webServerLocalAddresses)
                         {
-                            serverOptions.Listen(webServiceLocalAddress, 443, delegate (ListenOptions listenOptions)
+                            serverOptions.Listen(webServiceLocalAddress, 8443, delegate (ListenOptions listenOptions)
                             {
                                 listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
                                 listenOptions.UseHttps(delegate (SslStream stream, SslClientHelloInfo clientHelloInfo, object state, CancellationToken cancellationToken)
@@ -270,10 +270,10 @@ namespace BlockPage
 
                     foreach (IPAddress webServiceLocalAddress in _webServerLocalAddresses)
                     {
-                        _dnsServer.WriteLog("Web server '" + _name + "' was bound successfully: " + new IPEndPoint(webServiceLocalAddress, 80).ToString());
+                        _dnsServer.WriteLog("Web server '" + _name + "' was bound successfully: " + new IPEndPoint(webServiceLocalAddress, 880).ToString());
 
                         if (_sslServerAuthenticationOptions is not null)
-                            _dnsServer.WriteLog("Web server '" + _name + "' was bound successfully: " + new IPEndPoint(webServiceLocalAddress, 443).ToString());
+                            _dnsServer.WriteLog("Web server '" + _name + "' was bound successfully: " + new IPEndPoint(webServiceLocalAddress, 8443).ToString());
                     }
                 }
                 catch (Exception ex)
@@ -282,10 +282,10 @@ namespace BlockPage
 
                     foreach (IPAddress webServiceLocalAddress in _webServerLocalAddresses)
                     {
-                        _dnsServer.WriteLog("Web server '" + _name + "' failed to bind: " + new IPEndPoint(webServiceLocalAddress, 80).ToString());
+                        _dnsServer.WriteLog("Web server '" + _name + "' failed to bind: " + new IPEndPoint(webServiceLocalAddress, 880).ToString());
 
                         if (_sslServerAuthenticationOptions is not null)
-                            _dnsServer.WriteLog("Web server '" + _name + "' failed to bind: " + new IPEndPoint(webServiceLocalAddress, 443).ToString());
+                            _dnsServer.WriteLog("Web server '" + _name + "' failed to bind: " + new IPEndPoint(webServiceLocalAddress, 8443).ToString());
                     }
 
                     _dnsServer.WriteLog(ex);

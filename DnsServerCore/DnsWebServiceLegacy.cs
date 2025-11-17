@@ -483,7 +483,7 @@ namespace DnsServerCore
                     if (_dnsServer.EnableDnsOverHttps)
                     {
                         _dnsServer.EnableDnsOverHttp = true;
-                        _dnsServer.DnsOverHttpPort = 80;
+                        _dnsServer.DnsOverHttpPort = 880;
                     }
                     else if (_dnsServer.EnableDnsOverHttp)
                     {
@@ -491,11 +491,11 @@ namespace DnsServerCore
                     }
                     else
                     {
-                        _dnsServer.DnsOverHttpPort = 80;
+                        _dnsServer.DnsOverHttpPort = 880;
                     }
 
                     _dnsServer.DnsOverTlsPort = 853;
-                    _dnsServer.DnsOverHttpsPort = 443;
+                    _dnsServer.DnsOverHttpsPort = 8443;
                     _dnsServer.DnsOverQuicPort = 853;
                 }
 

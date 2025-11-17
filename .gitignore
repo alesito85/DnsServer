@@ -245,3 +245,7 @@ ModelManifest.xml
 .fake/
 
 Other/
+
+./config
+
+.env
